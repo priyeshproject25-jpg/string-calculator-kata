@@ -20,4 +20,9 @@ void main() {
     final calculator = StringCalculator();
     expect(calculator.add('1,2,3'), 6);
   });
+
+  test('numbers separated by comma and newline returns sum', () {
+    final calculator = StringCalculator();
+    expect(calculator.add('1\n2,3'), 6);
+  });
 }
