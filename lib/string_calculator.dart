@@ -4,9 +4,17 @@ class StringCalculator {
       return 0;
     }
 
-    // comma + newline dono ko handle karne ke liye
-    final normalized = numbers.replaceAll('\n', ',');
-    final parts = normalized.split(',');
+    String delimiter = ',';
+    String numbersPart = numbers;
+
+    // custom delimiter check
+    if (numbers.startsWith('//')) {
+      delimiter = numbers[2];
+      numbersPart = numbers.substring(4);
+    }
+
+    final normalized = numbersPart.replaceAll('\n', delimiter);
+    final parts = normalized.split(delimiter);
 
     int sum = 0;
     for (final part in parts) {
