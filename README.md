@@ -1,16 +1,44 @@
-# string_calculator_kata
+# String Calculator Kata (Flutter + Dart)
 
-A new Flutter project.
+This repository contains an implementation of the String Calculator Kata using Flutter (Dart), following Test Driven Development (TDD) practices.
 
-## Getting Started
+The solution is developed step-by-step with multiple commits to clearly demonstrate the RED → GREEN → REFACTOR cycle.
 
-This project is a starting point for a Flutter application.
+---
 
-A few resources to get you started if this is your first Flutter project:
+## Problem Statement
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Create a method `add(String numbers)` that:
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- Returns 0 for an empty string
+- Returns the number itself for a single number
+- Returns the sum of comma-separated numbers
+- Supports multiple numbers
+- Throws an exception for negative numbers
+- Ignores numbers greater than 1000
+
+---
+
+## Features Implemented
+
+- Empty string returns 0
+- Single number input
+- Multiple comma-separated numbers
+- Handles any amount of numbers
+- Throws exception for negative numbers
+- Ignores numbers greater than 1000
+- Fully covered with unit tests
+- Written using TDD
+
+---
+
+## Example Usage
+
+```dart
+StringCalculator calculator = StringCalculator();
+
+calculator.add("");        // 0
+calculator.add("5");       // 5
+calculator.add("1,2");     // 3
+calculator.add("1,2,3");   // 6
+calculator.add("1001,2");  // 2
