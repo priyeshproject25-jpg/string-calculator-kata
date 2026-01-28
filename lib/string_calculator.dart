@@ -7,7 +7,7 @@ class StringCalculator {
     String delimiter = ',';
     String numbersPart = numbers;
 
-    // custom delimiter check
+    // custom delimiter
     if (numbers.startsWith('//')) {
       delimiter = numbers[2];
       numbersPart = numbers.substring(4);
@@ -17,8 +17,20 @@ class StringCalculator {
     final parts = normalized.split(delimiter);
 
     int sum = 0;
+    List<int> negatives = [];
+
     for (final part in parts) {
-      sum += int.parse(part);
+      final value = int.parse(part);
+
+      if (value < 0) {
+        negatives.add(value);
+      }
+
+      sum += value;
+    }
+
+    if (negatives.isNotEmpty) {
+      throw Exception('negatives not allowed: ${negatives.join(',')}');
     }
 
     return sum;
