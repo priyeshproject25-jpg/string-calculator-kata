@@ -29,4 +29,18 @@ void main() {
     final calculator = StringCalculator();
     expect(calculator.add('//;\n1;2'), 3);
   });
+  test('negative numbers throw exception', () {
+    final calculator = StringCalculator();
+
+    expect(
+          () => calculator.add('1,-2,3'),
+      throwsA(
+        predicate(
+              (e) =>
+          e is Exception &&
+              e.toString().contains('negatives not allowed'),
+        ),
+      ),
+    );
+  });
 }
