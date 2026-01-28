@@ -4,11 +4,13 @@ class StringCalculator {
       return 0;
     }
 
-    if (numbers.contains(',')) {
-      final parts = numbers.split(',');
-      return int.parse(parts[0]) + int.parse(parts[1]);
+    final parts = numbers.split(',');
+    int sum = 0;
+
+    for (final part in parts) {
+      sum += int.parse(part);
     }
 
-    return int.parse(numbers);
+    return sum;
   }
 }
