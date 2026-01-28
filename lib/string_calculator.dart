@@ -4,9 +4,11 @@ class StringCalculator {
       return 0;
     }
 
-    final parts = numbers.split(',');
-    int sum = 0;
+    // comma + newline dono ko handle karne ke liye
+    final normalized = numbers.replaceAll('\n', ',');
+    final parts = normalized.split(',');
 
+    int sum = 0;
     for (final part in parts) {
       sum += int.parse(part);
     }
