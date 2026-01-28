@@ -16,4 +16,8 @@ void main() {
     final calculator = StringCalculator();
     expect(calculator.add('1,2'), 3);
   });
+  test('multiple numbers comma separated returns sum', () {
+    final calculator = StringCalculator();
+    expect(calculator.add('1,2,3'), 6);
+  });
 }
