@@ -26,7 +26,9 @@ class StringCalculator {
         negatives.add(value);
       }
 
-      sum += value;
+      if (value <= 1000) {
+        sum += value;
+      }
     }
 
     if (negatives.isNotEmpty) {
